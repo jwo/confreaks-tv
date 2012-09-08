@@ -1,0 +1,113 @@
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.redbox {
+    background: red;
+    padding: 2px;
+}
+
+.greenbox {
+    background: green;
+    padding: 2px;
+}
+
+.bluebox {
+    background: blue;
+    padding: 2px;
+}
+
+.large-video-display {
+    background: #eeeeee;
+}
+
+.video-previous {
+    float: left;
+}
+.video-controls {
+    margin: 0 auto;
+    text-align: center;
+}
+.video-frame {
+    magin: 0 auto;
+    text-align: center;
+}
+.video-abstract {
+    text-align: left;
+}
+
+.video-abstract p {
+    margin: 0 25px 5px 25px;
+}
+
+.video-more {
+    text-align: center;
+}
+
+.video-abstract-full {
+    display:none
+}
+
+.video-next {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.video-label {
+    text-align: center;
+}
+
+.video-conference {
+    text-align: center;
+    clear: both;
+}
+
+.video-title {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.video-presenters {
+    text-align: center;
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+.previous-channel {
+    margin: 10px 0 10px 0;
+    text-align: left;
+}
+
+.current-channel {
+    margin: 10px 0 10px 0;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.next-channel {
+    margin: 10px 0 10px 0;
+    text-align: right;
+}
+
+.carousel a {
+    font-size: 4em;
+}
+
+.dropdown-menu li a {
+    text-align: left;
+}
+
+.cftab-content {
+    margin-top: -18px;
+}
+
+.tab-pane.active {
+    background: white;
+    padding: 10px;
+    border-left: #ddd 1px solid;
+    border-right: #ddd 1px solid;
+    border-bottom: #ddd 1px solid;
+}
+
