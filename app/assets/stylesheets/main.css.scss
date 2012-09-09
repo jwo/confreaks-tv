@@ -56,7 +56,7 @@
 }
 
 .video-label {
-    text-align: center;
+    font-size: 1em;
 }
 
 .video-conference {
@@ -65,14 +65,15 @@
 }
 
 .video-title {
-    font-size: 1.5em;
-    text-align: center;
+    font-size: 1.75em;
+    margin-left: 10px;
+    line-height: 1.5em;
 }
 
 .video-presenters {
-    text-align: center;
     font-size: 1.2em;
     font-style: italic;
+    margin-left: 20px;
 }
 
 .previous-channel {

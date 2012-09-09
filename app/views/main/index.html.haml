@@ -1,23 +1,28 @@
 .row
-  .span9
-    .large-video-display
+  .span12
+    .well
       .video-label
         Featured Video
       .video-title
-        Rack Middleware as a General Purpose Abstraction
+        =@video.title
       .video-presenters
-        = link_to "John Bender", "#"
-        (
-        = link_to "@johnbender", "http://twitter.com/johnbender", :target => "_blank"
-        )
+        =raw(display_video_presenter_links @video)
       .video-frame
-        <object type="application/x-shockwave-flash" data="http://www.justin.tv/widgets/live_embed_player.swf?channel=confreaks" id="live_embed_player_flash" height="390" width="640" bgcolor="#000000"><param name="allowFullScreen" value="true"/><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="movie" value="http://www.justin.tv/widgets/live_embed_player.swf" /><param name="flashvars" value="hostname=www.justin.tv&channel=confreaks&auto_play=false&start_volume=25" /></object><a href="http://www.justin.tv/confreaks#r=-rid-&amp;s=em" class="trk" style="padding:2px 0px 4px; display:block; width:640px; font-weight:normal; font-size:10px; text-decoration:underline; text-align:center">Watch live video from confreaks on www.justin.tv</a>
-
-        %iframe{:width => 640, :height=>390, :src=>'http://www.youtube.com/embed/fcNaiP5tea0', :frameborder=>'0', :allowfullscreen=>true}
+        %iframe{:width =>"900" , :height => "540", :src=>"http://www.youtube.com/embed/#{@video.youtube_code}", :frameborder=>'0', :allowfullscreen=>true}
+.row
+  .span9
+    .well
+      %legend
+        =@video.title
+      .video-abstract
+        Posted:
+        = @video.post_date.strftime("%B %e, %Y") unless @video.post_date.nil?
+        %p
+          =raw(@video.abstract)
+  .span3
+    .well
       .video-controls.tabbable
         %ul.nav.nav-tabs#video-tabs
-          %li
-            = link_to "Info", "#info", "data-toggle" => "tab"
           %li
             = link_to "Share", "#share", "data-toggle" => "tab"
           %li
@@ -39,14 +44,7 @@
               %li
                 = link_to "For my Team", "#"
         .tab-content.cftab-content
-          .tab-pane.active#info
-            .video-abstract
-              Posted: April 19, 2012
-              %p
-                We've all seen the monolithic Rails model, pages and pages of methods all dumped into one class. Inevitably someone starts moving things around just to feel better about the loc count without making any real difference. How can we reify actions on an object and simplify our classes?
-              %p
-                In this talk we'll examine Rack middleware as a general purpose method of object composition, see examples of it at work in Vagrant, and use these ideas to simplify an existing application.
-          .tab-pane#share
+          .tab-pane.active#share
           .tab-pane#flag
           .tab-pane#transcript
           .tab-pane#views

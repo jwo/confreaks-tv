@@ -1,6 +1,8 @@
 Tv::Application.routes.draw do
   get "main/index"
 
+  resources :presenters
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
