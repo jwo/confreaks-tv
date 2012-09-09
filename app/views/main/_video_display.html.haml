@@ -1,0 +1,53 @@
+.video-display-container
+  .row
+    .span12
+      .well
+        .video-label
+          = carousel_title
+        .video-title
+          =video.title
+        .video-presenters
+          =raw(display_video_presenter_links video)
+        .video-frame
+          %iframe{:width =>"900" , :height => "540", :src=>"http://www.youtube.com/embed/#{video.youtube_code}?autoplay=0&origin=http://confreaks.tv", :frameborder=>'0', :allowfullscreen=>true}
+  .row
+    .span9
+      .well           
+        %legend
+          .pull-right
+            = number_with_delimiter(video.views)
+          = video.title
+        .video-abstract
+          Posted:
+          = video.post_date.strftime("%B %e, %Y") unless video.post_date.nil?
+          %p
+            = raw(video.abstract)
+    .span3
+      .well
+        .video-controls.tabbable
+          %ul.nav.nav-tabs#video-tabs
+            %li
+              = link_to "Share", "#share", "data-toggle" => "tab"
+            %li
+              = link_to "Flag - Everyone", "#flag", "data-toggle" => "tab"
+            %li
+              = link_to "Transcript", "#transcript", "data-toggle" => "tab"
+            %li
+              = link_to "#{number_with_delimiter(video.views)} views", "#views", "data-toggle" => "tab"
+            %li.dropdown
+              %a{ :class => "dropdown-toggle", "data-toggle" => "dropdown"}
+                Add To
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to "Favorites", "#"
+                %li
+                  = link_to "To Watch", "#"
+                %li.divider
+                %li
+                  = link_to "For my Team", "#"
+          .tab-content.cftab-content
+            .tab-pane.active#share
+            .tab-pane#flag
+            .tab-pane#transcript
+            .tab-pane#views
