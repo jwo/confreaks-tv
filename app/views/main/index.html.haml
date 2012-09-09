@@ -1,4 +1,9 @@
 #myCarousel.carousel.slide
+  .home-page-carousel-controls
+    %a{:class => "carousel-control left", :href => "#myCarousel", "data-slide" => "prev"}
+      <
+    %a{:class => "carousel-control right", :href => "#myCarousel", "data-slide" => "next"}
+      >
   .carousel-inner
     .active.item.video-carousel 
       =render :partial => 'video_display', :locals => {:video => @video, :carousel_title => "Featured Video" }
@@ -9,7 +14,3 @@
       -unless @last_7.include?(video)
         .item.video-carousel
           =render :partial => 'video_display', :locals => {:video => video, :carousel_title => "#{(i + 1).ordinalize} most popular in the last 30 days"}
-  %a{:class => "carousel-control left", :href => "#myCarousel", "data-slide" => "prev"}
-    <
-  %a{:class => "carousel-control right", :href => "#myCarousel", "data-slide" => "next"}
-    >

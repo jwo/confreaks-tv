@@ -1,0 +1,43 @@
+// Place all the styles related to the conferences controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.conference-carousel-controls {
+
+} 
+.conference-carousel-controls a {
+  z-index: 9999;
+}
+
+.conference-carousel-controls .carousel-control {
+                              top: 40px;
+}
+
+.conference-mini-display-outer {
+                               text-align: center;
+}
+
+.conference-mini-display {
+                         text-align: center;
+                         display: table;
+                         height: 300px;
+                         width: 100%;
+}
+
+.conference-mini-display img {
+                         max-height: 250px;
+                         margin: 0 auto 10px auto;
+}
+
+.conference-mini-display .caption {
+                         text-align: center;
+                         font-size: 1.4em;
+                         font-style: bold;
+                         margin: 0 auto;
+}
+
+.conference-mini-display .inner {
+                         display:table-cell;
+                         vertical-align: middle;
+                         text-align:center;
+                         margin: 0 auto;
+}

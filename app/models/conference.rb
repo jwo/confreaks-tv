@@ -5,7 +5,7 @@ class Conference < ActiveRecord::Base
 
   validates :name, :presence => true, :uniqueness => true  
 
-  has_many :events
+  has_many :events, :order => 'start_at desc', :conditions => ["display =? and private =?", true, false]
 
   def to_param
     "#{id}-#{slug}"

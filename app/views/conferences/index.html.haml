@@ -1,0 +1,18 @@
+.row
+  .span12
+    %h1
+      Conferences
+.row
+  -k=-1
+  -@conferences.each do |conference|
+    -k+=1
+    .span6
+      .well
+        .conference-mini-display-outer
+          .conference-mini-display
+            .inner
+              =image_tag(conference.events.first.logo.url)
+              .caption
+                =link_to conference.name, conference_path(conference)
+    -if (k+1) % 2 == 0
+      .clearfix

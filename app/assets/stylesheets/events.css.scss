@@ -1,3 +1,20 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.event-header {
+              text-align: center;
+}
+
+.event-video {
+             text-align: center;
+             height: 260px;
+}
+
+.day-label {
+           text-align:center;
+}
+
+.event-video img {
+             width:320px;
+}

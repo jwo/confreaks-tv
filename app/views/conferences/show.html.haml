@@ -1,0 +1,13 @@
+#myCarousel.carousel.slide
+  .conference-carousel-controls
+    %a{:class => "carousel-control right", :href => "#myCarousel", "data-slide" => "next"}
+      >
+    %a{:class => "carousel-control left", :href => "#myCarousel", "data-slide" => "prev"}
+      <
+  .carousel-inner
+    .active.item.conference-carousel
+      =render :partial => '/events/event', :locals => {:event => @conference.events[0]}
+    -@conference.events.each_with_index do |event, i|
+      -unless i == 0
+        .item.conference-carousel
+          =render :partial => '/events/event', :locals => {:event => event}

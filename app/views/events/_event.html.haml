@@ -1,0 +1,35 @@
+.row
+  .span12
+    .well
+      .event-header
+        =link_to(image_tag(event.logo.url(:original), :alt => event.display_name, :title => event.display_name), event.url, :target => "_blank", :class => 'noborder') unless event.logo.nil?
+        %h1
+          =event.display_name 
+          \- Schedule
+        .event-date
+          =event.date_occurred
+.row
+  - previous_date =""
+  - k = 0
+  -event.videos.available.each_with_index do |video,i|
+    - k+=1
+    -unless previous_date == video.recorded_at.strftime("%Y-%m-%d").to_s
+      -previous_date = video.recorded_at.strftime("%Y-%m-%d").to_s
+      -k=0
+      .clearfix
+      .day-label
+        %h2
+          =video.recorded_at.strftime("%A %B %d, %Y")
+    .span4
+      .well
+        .event-video
+          =link_to image_tag(video.image.url(:thumb), :class => 'noborder'), video_path(video)
+          %br
+          =video.title
+          %br
+          =raw(display_video_presenter_links(video))
+          %br
+          =number_with_delimiter(video.views)
+
+    -if (k+1) % 3 == 0
+      .clearfix

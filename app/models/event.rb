@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   validates :short_code, :presence => true, :uniqueness => true
   
   scope :active,
-    :conditions => ["display = ?", true],
+    :conditions => ["display = ? and private = ?", true, false],
     :order => 'start_at desc'
 
   belongs_to :conference
