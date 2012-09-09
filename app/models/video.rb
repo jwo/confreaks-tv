@@ -112,7 +112,7 @@ class Video < ActiveRecord::Base
   
   ##
   # requires title
-  validates_presence_of :title
+  validates  :title, :presence => true
 
   ##
   # requires recorded_at date

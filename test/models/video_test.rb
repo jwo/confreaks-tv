@@ -2,7 +2,7 @@ require 'minitest_helper'
 
 class VideoTest < MiniTest::Rails::ActiveSupport::TestCase
 
-  def test_requires_title
+  def test_requires_attributes
     video = Video.new
 
     assert video.invalid?, "record was valid... wtf?"
@@ -31,6 +31,10 @@ class VideoTest < MiniTest::Rails::ActiveSupport::TestCase
     assert video.respond_to? :image
   end
 
+  def test_has_specified_scopes
+    assert Video.respond_to? :available, "video did not respond to available"
+  end
+  
   def test_license_url_works_for_supported_licenses
     v = Video.new
 
