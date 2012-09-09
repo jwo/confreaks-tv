@@ -10,6 +10,8 @@
           =raw(display_video_presenter_links video)
         .video-frame
           %iframe{:width =>"900" , :height => "540", :src=>"http://www.youtube.com/embed/#{video.youtube_code}?autoplay=0&origin=http://confreaks.tv", :frameborder=>'0', :allowfullscreen=>true}
+        .video-conference
+          =link_to video.event.display_name, event_path(video.event)
   .row
     .span9
       .well           
