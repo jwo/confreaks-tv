@@ -4,17 +4,34 @@ gem 'rails', '3.2.7'
 gem 'haml-rails'
 gem 'sass'
 
+# gem 'devise'
+# gem 'devise-encryptable'
+
+# gem 'omniauth'
+# gem 'omniauth-facebook'
+# gem 'omniauth-twitter'
+# gem 'omniauth-openid'
+# gem 'omniauth-github'
+# gem 'omniauth-linkedin'
+
+gem 'capistrano'
+gem 'capistrano-ext'
+gem 'rvm-capistrano'
+
+gem 'newrelic_rpm'
+
 group :development do
-  gem "sqlite3"
+  gem 'sqlite3'
 end
 
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
 
+gem 'whenever', :require => false
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -31,19 +48,21 @@ end
 gem 'jquery-rails'
 
 group :development, :test do
-  gem "autotest-standalone", "~> 4.5.4"
-  gem "autotest-rails-pure", "~> 4.1.2"
-  gem "autotest-fsevent"
-  gem "autotest-growl"
+  gem 'autotest-standalone', '~> 4.5.4'
+  gem 'autotest-rails-pure', '~> 4.1.2'
+  gem 'autotest-fsevent'
+  gem 'autotest-growl'
 
-  gem "minitest"
-  gem "minitest-rails"
-  gem "minitest-rails-capybara"
+  gem 'minitest'
+  gem 'minitest-rails'
+  gem 'minitest-rails-capybara'
 
-  gem "simplecov", :require => false
+  gem 'simplecov', :require => false
+  gem 'railroady'
+  
 end
 
-gem "paperclip"
+gem 'paperclip'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
