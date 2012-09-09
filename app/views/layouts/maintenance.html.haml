@@ -1,0 +1,15 @@
+%h1
+  Confreaks.tv is temporarily down for
+  -if @reason.nil?
+    routine maintenance.
+  -else
+    =@reason
+%p
+  We shall return
+  -if @deadline.nil?
+    as soon as possible.
+  -else
+    =@deadline
+%p
+  The system was taken down at
+  =Time.now.strftime("%B %d, %Y @ %I:%M:%S %p %Z")
