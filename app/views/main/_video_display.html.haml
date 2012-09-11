@@ -5,7 +5,7 @@
         .video-label
           = carousel_title
         .video-title
-          =video.title
+          =link_to_unless_current video.title, video_path(video)
         .video-presenters
           =raw(display_video_presenter_links video)
         .video-frame
@@ -48,8 +48,32 @@
                 %li.divider
                 %li
                   = link_to "For my Team", "#"
-          .tab-content.cftab-content
-            .tab-pane.active#share
-            .tab-pane#flag
-            .tab-pane#transcript
-            .tab-pane#views
+          .accordion#features
+            .accordion-group
+              .accordion-heading
+                %a{:class => 'accordion-toggle', "data-toggle" => "collapse", "data-parent" => "features", :href => "#collapseOne"}
+                  Analytics
+            #collapseOne.accordion-body.collapse.in
+              .accordion-inner
+                Stuff inside the accordion
+            .accordion-group
+              .accordion-heading
+                %a{:class => 'accordion-toggle', 'data-toggle' => 'collapse', 'data-parent' => 'features', :href => "#collapseTwo"}
+                  Transcript
+            #collapseTwo.accordion-body.collapse.in
+              .accordion-inner
+                Stuff in the second accordion
+            .accordion-group
+              .accordion-heading
+                %a{:class => 'accordion-toggle', "data-toggle" => "collapse", "data-parent" => "features", :href => "#collapseThree"}
+                  Three
+            #collapseThree.accordion-body.collapse.in
+              .accordion-inner
+                Stuff inside the accordion
+            .accordion-group
+              .accordion-heading
+                %a{:class => 'accordion-toggle', "data-toggle" => "collapse", "data-parent" => "features", :href => "#collapseFour"}
+                  Four
+            #collapseFour.accordion-body.collapse.in
+              .accordion-inner
+                Stuff inside the accordion
