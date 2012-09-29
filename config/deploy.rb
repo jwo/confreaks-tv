@@ -11,7 +11,7 @@ set :whenever_environment, defer {stage}
 require 'whenever/capistrano'
 
 # Multi-stage support
-set :stages, %w(staging production)
+set :stages, %w(staging production bluebox)
 require 'capistrano/ext/multistage'
 
 # set :rvm_pth, "$HOME/.rvm"
