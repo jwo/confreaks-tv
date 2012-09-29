@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20120909155905) do
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
     t.string   "provider"
-    t.string   "uie"
+    t.string   "uid"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -148,9 +148,12 @@ ActiveRecord::Schema.define(:version => 20120909155905) do
     t.datetime "updated_at"
   end
 
-  create_table "t", :id => false, :force => true do |t|
-    t.integer "i"
-    t.text    "t"
+  create_table "twitter_accounts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "token"
+    t.string   "secret"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
@@ -179,35 +182,36 @@ ActiveRecord::Schema.define(:version => 20120909155905) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "videos", :force => true do |t|
-    t.string   "title",                                          :null => false
+    t.string   "title"
     t.datetime "recorded_at"
     t.integer  "event_id"
-    t.boolean  "available",          :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "available"
     t.boolean  "include_random",     :default => true
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "streaming_asset_id"
-    t.string   "rating",             :default => "Not Rated"
+    t.string   "rating",             :default => "Everyone"
     t.text     "abstract"
     t.datetime "post_date"
     t.boolean  "announce",           :default => false
     t.datetime "announce_date"
     t.text     "note"
-    t.integer  "room_id"
+    t.integer  "room_id",            :default => 1
     t.string   "youtube_code"
     t.integer  "views",              :default => 0
+    t.datetime "views_updated_at"
     t.integer  "views_last_7",       :default => 0
     t.integer  "views_last_30",      :default => 0
-    t.datetime "views_updated_at"
     t.string   "license",            :default => "cc-by-sa-3.0"
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
   end
 
-  add_index "videos", ["event_id"], :name => "index_videos_on_event_id"
-  add_index "videos", ["recorded_at"], :name => "index_videos_on_recorded_at"
-  add_index "videos", ["title"], :name => "index_videos_on_title"
+  add_index "videos", ["event_id"], :name => "by_event_id"
+  add_index "videos", ["recorded_at"], :name => "by_recorded_at"
+  add_index "videos", ["title"], :name => "by_title"
+  add_index "videos", ["title"], :name => "title"
 
 end

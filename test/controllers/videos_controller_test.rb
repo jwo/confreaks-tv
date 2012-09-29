@@ -7,7 +7,10 @@ class VideosControllerTest < MiniTest::Rails::ActionController::TestCase
   end
 
   test "should get show" do
+    video = Video.first
+
     get :show
+    
     assert_response :success
   end
 
