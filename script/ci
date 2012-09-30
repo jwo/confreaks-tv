@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -x
+set -e
+
+sudo apt-get install -y ruby-1.9.3-p194 libxml2-dev libxslt-dev libsqlite3-dev
+
+rbpath=/usr/local/ruby/1.9.3-p194/bin
+gem=$rbpath/gem
+PATH=$rbpath:$PATH
+BUNDLER_VERSION=1.0.21
+
+$gem list -i bundler -v "~> ${BUNDLER_VERSION}" || sudo $gem install bundler -v $BUNDLER_VERSION --no-ri --no-rdoc --source http://rubygems.org
+
+bundle install --deployment --without production
+
+# The quoting is having problems with
+# empty strings
+if [[ -z "$@" ]]; then
+  bundle exec rake db:migrate
+  bundle exec rake test
+else
+  exec $@
+fi
