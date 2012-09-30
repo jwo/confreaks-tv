@@ -1,6 +1,6 @@
 class CreatePresenters < ActiveRecord::Migration
   def change
-    unless ActiveRecord::Base.connection.table_exists? use'presenters'
+    unless ActiveRecord::Base.connection.table_exists? 'presenters'
       create_table :presenters do |t|
         t.string :first_name
         t.string :last_name
