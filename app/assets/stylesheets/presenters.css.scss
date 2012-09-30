@@ -1,3 +1,32 @@
 // Place all the styles related to the presenters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.presenter-name {
+                text-align: center;
+}
+
+.presenter-claim {
+                 font-size: .8em;
+                 font-style: italic;
+                 text-align: center;
+}
+
+.presenter-container {
+                     height: 240px;
+                     text-align: center;
+}
+
+.presenter-container .name {
+                     text-align: left;
+                     font-size: 1.2em;
+                     font-weight: bold;
+                     height: 40px;
+                     }
+
+.presenter-alpha-section-letter {
+                                height: 130px;
+                                line-height: 130px;
+                                valign: bottom;
+                                text-align: center;
+                                }

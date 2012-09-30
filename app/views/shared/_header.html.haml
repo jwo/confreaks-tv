@@ -17,4 +17,12 @@
           %li
             = link_to "Search", "#"
           %li
-            = link_to "Presenters", "#"
+            %a.drop-down-toggle{:href => "#", "data-toggle" => "dropdown"}
+              %span
+                Presenters
+                %span.make-it-white.caret
+              %ul.dropdown-menu
+                %Li
+                  =link_to 'Table', presenters_path(:view => 'table')
+                %li
+                  =link_to 'Pictures', presenters_path(:view => 'pictures')

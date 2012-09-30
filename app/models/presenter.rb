@@ -1,16 +1,21 @@
 class Presenter < ActiveRecord::Base
+  acts_as_taggable
+  acts_as_taggable_on :tags
+  
   has_many :presentations
   has_many :videos, :through => :presentations, :order => 'recorded_at desc'
-
+  has_many :links, :as => :linkable
+  
   has_one :user
-
-  has_one :most_recent_video,
-    :class_name => 'Video',
-    :through => :presentations,
-    :order => 'recorded_at desc'
 
   validates :first_name, :uniqueness => {:scope => :last_name}
 
+  belongs_to :favorite_video, :class_name => 'Video'
+
+  def most_recent_video
+    self.videos.first
+  end
+  
   def to_param
     "#{id}-#{slug}"
   end
@@ -46,5 +51,9 @@ class Presenter < ActiveRecord::Base
         user.avatar.url(options[:avatar_zie])
       end
     end
+  end
+
+  def featured_video
+    self.favorite_video || self.most_recent_video
   end
 end

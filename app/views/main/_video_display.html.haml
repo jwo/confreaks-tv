@@ -13,7 +13,7 @@
         .video-conference
           =link_to video.event.display_name, event_path(video.event)
   .row
-    .span9
+    .span12
       .well           
         %legend
           .pull-right
@@ -24,56 +24,3 @@
           = video.post_date.strftime("%B %e, %Y") unless video.post_date.nil?
           %p
             = raw(video.abstract)
-    .span3
-      .well
-        .video-controls.tabbable
-          %ul.nav.nav-tabs#video-tabs
-            %li
-              = link_to "Share", "#share", "data-toggle" => "tab"
-            %li
-              = link_to "Flag - Everyone", "#flag", "data-toggle" => "tab"
-            %li
-              = link_to "Transcript", "#transcript", "data-toggle" => "tab"
-            %li
-              = link_to "#{number_with_delimiter(video.views)} views", "#views", "data-toggle" => "tab"
-            %li.dropdown
-              %a{ :class => "dropdown-toggle", "data-toggle" => "dropdown"}
-                Add To
-                %span.caret
-              %ul.dropdown-menu
-                %li
-                  = link_to "Favorites", "#"
-                %li
-                  = link_to "To Watch", "#"
-                %li.divider
-                %li
-                  = link_to "For my Team", "#"
-          .accordion#features
-            .accordion-group
-              .accordion-heading
-                %a{:class => 'accordion-toggle', "data-toggle" => "collapse", "data-parent" => "features", :href => "#collapseOne"}
-                  Analytics
-            #collapseOne.accordion-body.collapse.in
-              .accordion-inner
-                Stuff inside the accordion
-            .accordion-group
-              .accordion-heading
-                %a{:class => 'accordion-toggle', 'data-toggle' => 'collapse', 'data-parent' => 'features', :href => "#collapseTwo"}
-                  Transcript
-            #collapseTwo.accordion-body.collapse.in
-              .accordion-inner
-                Stuff in the second accordion
-            .accordion-group
-              .accordion-heading
-                %a{:class => 'accordion-toggle', "data-toggle" => "collapse", "data-parent" => "features", :href => "#collapseThree"}
-                  Three
-            #collapseThree.accordion-body.collapse.in
-              .accordion-inner
-                Stuff inside the accordion
-            .accordion-group
-              .accordion-heading
-                %a{:class => 'accordion-toggle', "data-toggle" => "collapse", "data-parent" => "features", :href => "#collapseFour"}
-                  Four
-            #collapseFour.accordion-body.collapse.in
-              .accordion-inner
-                Stuff inside the accordion

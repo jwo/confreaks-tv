@@ -1,0 +1,29 @@
+%a{:name => "top"}
+.row
+  .span12
+    %h1
+      Presenters
+    .pull-right
+      =link_to_unless_current 'pictures', presenters_path(:view => 'pictures')
+      \|
+      =link_to_unless_current 'table', presenters_path(:view => 'table')
+.row
+  .span12
+    .well
+      %table#presenters.table.table-stripped
+        %thead
+          %tr
+            %th
+              Name
+            %th
+              Last Name
+            %th
+              First Name
+            %th
+              Twitter Handle
+            %th
+              Videos
+            %th
+              Views
+        %tbody
+          =render :partial => 'presenter', :collection => @presenters

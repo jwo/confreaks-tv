@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120909155905) do
+ActiveRecord::Schema.define(:version => 20120930022847) do
 
   create_table "activities", :force => true do |t|
     t.string   "message"
@@ -107,6 +107,16 @@ ActiveRecord::Schema.define(:version => 20120909155905) do
 
   add_index "histories", ["controller", "action", "param_id"], :name => "by_controller_action_param_id"
 
+  create_table "links", :force => true do |t|
+    t.string   "url"
+    t.string   "description"
+    t.integer  "linkable_id"
+    t.integer  "linkable_type"
+    t.integer  "added_by_user_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
   create_table "organization_users", :force => true do |t|
     t.integer  "organization_id"
     t.integer  "user_id"
@@ -138,6 +148,9 @@ ActiveRecord::Schema.define(:version => 20120909155905) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "twitter_handle"
+    t.integer  "favorite_video_id"
+    t.boolean  "show_featured_video", :default => true
+    t.text     "bio"
   end
 
   create_table "rooms", :force => true do |t|
@@ -146,6 +159,23 @@ ActiveRecord::Schema.define(:version => 20120909155905) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       :limit => 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
   end
 
   create_table "twitter_accounts", :force => true do |t|
@@ -174,6 +204,7 @@ ActiveRecord::Schema.define(:version => 20120909155905) do
     t.string   "authentication_token"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.integer  "presenter_id"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

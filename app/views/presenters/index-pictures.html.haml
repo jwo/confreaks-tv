@@ -1,0 +1,36 @@
+%a{:name => "top"}
+.row
+  .span12
+    %h1
+      Presenters
+    .pull-right
+      =link_to_unless_current 'pictures', presenters_path(:view => 'pictures')
+      \|
+      =link_to_unless_current 'table', presenters_path(:view => 'table')
+.row
+  -k=-1
+  -previous_letter = ""
+  -@presenters.each do |presenter|
+    -k+=1
+    -unless previous_letter == presenter.last_name[0]
+      -previous_letter = presenter.last_name[0]
+      -k=0
+      .clearfix
+      %a{:name => previous_letter}
+      .presenter-alpha-section-letter      
+        =raw(alpha_index previous_letter)
+      .clearfix
+    .span3
+      .well
+        .presenter-container
+          .name
+            =link_to presenter.display_name, presenter_path(presenter)
+            .pull-right
+              =presenter.videos.count
+          .image
+            =image_tag("http://placehold.it/180x180")
+          .tags
+            =presenter.tag_list
+    -if (k+1) % 4 == 0
+      .clearfix
+  
