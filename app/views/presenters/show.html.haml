@@ -1,0 +1,59 @@
+.row
+  .span3
+    .well
+      .presenter-container
+        .name
+          =@presenter.display_name
+        .image
+          =image_tag("http://placehold.it/180x180")
+        .tags
+          =@presenter.tag_list
+      -unless @presenter.user
+        .presenter-claim
+          =link_to "Claim your Presenter Profile", "#"
+  .span6
+    .well
+      %legend
+        Bio
+      =@presenter.bio
+    -if @presenter.links
+      .well
+        %legend
+          Links
+        %ul
+          -unless (@presenter.twitter_handle && @presenter.twitter_handle.empty?)
+            %li
+              Twitter:
+              =link_to @presenter.twitter_handle, twitter_path(@presenter.twitter_handle) 
+          =render :partial => 'link', :collection => @presenter.links
+  .span3
+    .well
+      %legend
+        Videos
+      .large-stat
+        =@presenter.videos.available.count
+  .span3
+    .well
+      %legend
+        Total Views
+      .stat
+        =number_with_delimiter(@presenter.videos.map {|video| video.views}.sum)
+-if @presenter.show_featured_video && @presenter.videos.count > 0
+  =render :partial => 'main/video_display', :locals => {:video => @presenter.featured_video, :carousel_title => ""}
+.row
+  -k=-1
+  -@presenter.videos.available.each_with_index do |video, i|
+    -k+=1
+    .span4
+      .well
+        =link_to video.event.display_name, event_path(video.event)
+        .event-video
+          =link_to image_tag(video.image.url(:thumb), :class => 'noborder'), video_path(video)
+          %br
+          =video.title
+          %br
+          =raw(display_video_presenter_links(video))
+          %br
+          =number_with_delimiter(video.views)
+    -if(k+1) % 3 == 0
+      .clearfix

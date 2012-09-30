@@ -1,0 +1,13 @@
+%tr
+  %td
+    =link_to presenter.display_name, presenter_path(presenter)
+  %td
+    =presenter.last_name
+  %td
+    =presenter.first_name
+  %td
+    =link_to(presenter.twitter_handle, twitter_path(presenter.twitter_handle), :target => "_blank")  unless presenter.twitter_handle.nil?
+  %td.tr
+    =presenter.videos.count
+  %td.tr
+    =presenter.videos.map {|v| v.views}.sum

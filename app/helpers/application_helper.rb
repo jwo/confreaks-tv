@@ -3,7 +3,7 @@ module ApplicationHelper
   def display_video_presenter_links video
     presenters = []
     video.presenters.each do |presenter|
-      name_link = link_to presenter.display_name, presenter_path(presenter)
+      name_link = link_to_unless_current presenter.display_name, presenter_path(presenter)
       unless presenter.twitter_handle.blank?
         twitter_link = link_to "(@#{presenter.twitter_name})", twitter_path(presenter.twitter_name), :target => "_blank"
       end

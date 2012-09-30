@@ -121,3 +121,32 @@
 .home-page-carousel-controls a {
                              z-index: 9999;
 }
+
+.large-stat {
+            text-align: center;
+            font-size: 4em;
+}
+
+.stat {
+      font-size: 2em;
+      line-height: 50px;
+      text-align: center;
+      height: 40px;
+}
+
+td.tr {
+      text-align:right;
+      padding-right: 50px;
+}
+
+/* CLEARFIX
+=-=-=-=-=-=-=-=-=-=*/
+
+.clearfix:after {
+content: ".";
+display: block;
+clear: both;
+visibility: hidden;
+line-height: 0;
+height: 0;
+}
