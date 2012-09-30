@@ -1,11 +1,15 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
     if ActiveRecord::Base.connection.table_exists? :users
-      remove_index :users, :email
-      remove_index :users, :reset_password_token
-      remove_index :users, :confirmation_token
-      remove_index :users, :authentication_token
       puts "You have a user table, so I'm droping index and the table..."
+
+      begin
+        remove_index :users, :email
+        remove_index :users, :reset_password_token
+        remove_index :users, :confirmation_token
+        remove_index :users, :authentication_token
+      rescue
+      end
       
       drop_table :users
 
