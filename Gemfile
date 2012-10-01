@@ -8,11 +8,6 @@ gem 'devise'
 gem 'devise-encryptable'
 
 gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'omniauth-openid'
-gem 'omniauth-github'
-gem 'omniauth-linkedin'
 
 gem 'rails_admin'
 
