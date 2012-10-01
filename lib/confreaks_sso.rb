@@ -3,6 +3,8 @@ module OmniAuth
   module Strategies
     class ConfreaksSso < OmniAuth::Strategies::OAuth2
 
+      CUSTOM_PROVIDER_URL = "http://local.sso.confreaks.tv:4000"
+      
       option :client_options, {
         :site =>  CUSTOM_PROVIDER_URL,
         :authorize_url => "#{CUSTOM_PROVIDER_URL}/auth/confreaks_sso/authorize",

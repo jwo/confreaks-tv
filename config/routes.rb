@@ -1,9 +1,10 @@
 Tv::Application.routes.draw do
 
-  devise_for :users
-
   match '/auth/:provider/callback' => 'authentications#create'
+  match '/auth/failure', :to => 'user_sessions#failure'
 
+  match '/sign_out', :to => 'user_sessions#destroy'
+  
   resources :authentications
 
   resources :my_account, :controller => :my_account

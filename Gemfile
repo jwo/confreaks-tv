@@ -4,10 +4,9 @@ gem 'rails', '3.2.7'
 gem 'haml-rails'
 gem 'sass'
 
-gem 'devise'
-gem 'devise-encryptable'
 
 gem 'omniauth'
+gem 'omniauth-oauth2'
 
 gem 'rails_admin'
 
