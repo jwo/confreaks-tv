@@ -1,0 +1,6 @@
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :confreaks_sso, 'access_key',
+  'secret_key'
+end
+  
+  

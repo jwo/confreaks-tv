@@ -1,0 +1,22 @@
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  .fieldset
+    %legend
+      Registration
+      %p.pull-right
+        &nbsp;
+      %button.btn.btn-primary.pull-right{:type => 'submit'}
+        Sign Up
+    .control-group
+      =f.label :email, :class => 'control-label'
+      .controls
+        =f.text_field :email
+    .control-group
+      =f.label :password, :class => 'control-label'
+      .controls
+        =f.password_field :password
+    .control-group
+      =f.label :password_confirmation, :class => 'control-label'
+      .controls
+        =f.password_field :password_confirmation
+= render "devise/shared/links"
