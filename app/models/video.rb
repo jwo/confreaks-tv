@@ -127,6 +127,11 @@ class Video < ActiveRecord::Base
   belongs_to :streaming_video,
              :class_name => 'Asset',
              :foreign_key => "streaming_asset_id"
+
+  has_many :list_entries
+  has_many :lists, :through => :list_entries
+
+  
   ##
   # a collection of all of the assets that are available with this video
   has_many :assets

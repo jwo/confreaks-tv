@@ -20,4 +20,19 @@ class MyAccountController < ApplicationController
 
     redirect_to my_account_path
   end
+
+  def claim_presenter
+    @presenter = Presenter.find(params[:id])
+    if current_user.presenter
+      flash[:error] = "You already have a presenter profile '#{current_user.presenter.display_name}' associated with this account."
+    else
+      current_user.presenter = @presenter
+      if current_user.save
+        flash[:success] = "This presenter profile is now associated with you."
+      else
+        flash[:error] = "We were unable to associate this presenter with your account."
+      end
+    end
+    redirect_to presenter_path(@presenter)
+  end
 end

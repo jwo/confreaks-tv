@@ -10,7 +10,7 @@
           =@presenter.tag_list
       -unless @presenter.user
         .presenter-claim
-          =link_to "Claim your Presenter Profile", "#"
+          =link_to "Claim your Presenter Profile", "/my_account/claim_presenter/#{@presenter.id}", :method => :put
   .span6
     .well
       %legend

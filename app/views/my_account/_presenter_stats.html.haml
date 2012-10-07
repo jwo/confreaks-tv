@@ -1,0 +1,12 @@
+.span3
+  .well
+    %legend
+      My Videos
+    .large-stat
+      = current_user.presenter.videos.available.count
+.span3
+  .well
+    %legend
+      My Total Views
+    .stat
+      =number_with_delimiter(current_user.presenter.videos.map {|video| video.views}.sum)

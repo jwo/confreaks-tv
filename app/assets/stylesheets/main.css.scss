@@ -125,6 +125,7 @@
 .large-stat {
             text-align: center;
             font-size: 4em;
+            line-height: 1em;      
 }
 
 .stat {
@@ -132,6 +133,13 @@
       line-height: 50px;
       text-align: center;
       height: 40px;
+}
+
+.small-stat {
+            padding-top: 5px;
+        font-size: 1em;
+        line-height: 1.1em;
+        text-align: center;
 }
 
 td.tr {
@@ -149,4 +157,14 @@ clear: both;
 visibility: hidden;
 line-height: 0;
 height: 0;
+}
+
+footer .copyright {
+        text-align: center;
+}
+
+footer .version {
+       text-align: center;
+       font-size: .8em;
+       font-color: #101010;
 }

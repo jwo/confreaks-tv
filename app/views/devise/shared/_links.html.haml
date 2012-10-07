@@ -24,4 +24,4 @@
     %br
     -resource_class.omniauth_providers.each do |provider|
       =# link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider)
-      = link_to image_tag("http://github.com/intridea/authbuttons/raw/master/png/#{provider.to_s}_64.png"), omniauth_authorize_path(resource_name, provider)
+      = link_to image_tag("authbuttons/#{provider.to_s}_64.png"), omniauth_authorize_path(resource_name, provider)

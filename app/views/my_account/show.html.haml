@@ -1,0 +1,39 @@
+.row
+  .span6
+    .well
+      .form-horizontal
+        .fieldset
+          %legend
+            .pull-right
+              -unless current_user.presenter
+                %a{ :href => edit_my_account_path}
+                  %i.icon-pencil
+              -else
+                %a{ :href => edit_presenter_path(current_user.presenter) }
+                  %i.icon-pencil
+            My Account
+          .control-group
+            =attribute_display "Email", current_user.email
+            =attribute_display "First Name", current_user.first_name || current_user.presenter.try(:first_name)
+            = attribute_display "Last Name", current_user.last_name || current_user.presenter.try(:last_name)
+            = attribute_display "Twitter Handle", current_user.presenter.twitter_name
+          .control-group
+            = attribute_display "Bio", current_user.presenter.bio
+          .control-group
+            = attribute_display "Role", current_user.role.titleize
+            = attribute_display "Authentications", current_user.authentications.map {|auth| auth.provider.titleize }.uniq.sort.join(", ")
+  .span6
+    .well
+      .form-horizontal
+        %legend
+          Stats
+        .fieldset
+          .control-group
+            = attribute_display "Sign in Count", current_user.sign_in_count
+            = attribute_display "Current Sign in", time_ago_in_words(current_user.current_sign_in_at) + " ago"
+            = attribute_display "Previous Sign in", current_user.last_sign_in_at.strftime("%B %d, %Y at %I:%M:%S %p %Z")
+          -if current_user.presenter
+            .control-group
+              = attribute_display "Presentations", current_user.presenter.videos.available.count
+              = attribute_display "Total Views", number_with_delimiter(current_user.presenter.videos.map {|video| video.views}.sum)
+          

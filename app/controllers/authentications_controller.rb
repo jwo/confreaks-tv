@@ -3,12 +3,26 @@ class AuthenticationsController < ApplicationController
     @authentications = current_user.authentications if current_user
   end
 
+  def facebook
+    create
+  end
+
+  def twitter
+    create
+  end
+
+  def github
+    create
+  end
+
+  def open_id
+    create
+  end
+  
   ##
   # this method is called by /auth/:provider/callback from all the
   # oauth providers of this app.  So it is the auth lookup/create code
   def create
-    @event = Event.find_by_subdomain(request.subdomain)
-
     omniauth = request.env["omniauth.auth"]
 
     authentication = Authentication.find_by_provider_and_uid(
@@ -49,6 +63,9 @@ class AuthenticationsController < ApplicationController
     redirect_to authentications_url, :notice => "Successfully destroyed authentication."
   end
 
+  def failure
+  end
+  
 protected
 
   def handle_unverified_request

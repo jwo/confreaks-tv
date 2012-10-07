@@ -20,4 +20,23 @@ module ApplicationHelper
   def twitter_path twitter_name
     "http://twitter.com/#{twitter_name}"
   end
+
+  ##
+  # this method takes a label and a value and displays it with the
+  # appropriate divs, etc.. for inclusion on a form
+  def attribute_display label, value
+#    content_tag(:div,
+                content_tag(:label, label,
+                            :class => "control-label") +
+                content_tag(:div, value,
+                            :class => "controls display") +
+                content_tag(:div,"", :class => "clear")
+#                :class => "control-group")
+  end
+
+  ##
+  # displays a Yes or No the boolean value passed in
+  def yes_no value
+    value ? "Yes" : "No"
+  end
 end

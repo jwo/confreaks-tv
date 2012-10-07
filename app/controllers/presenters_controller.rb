@@ -11,4 +11,12 @@ class PresentersController < ApplicationController
   def show
     @presenter = Presenter.find(params[:id])
   end
+
+  def edit
+    @presenter = Presenter.find(params[:id])
+
+    unless current_user && current_user.is_admin?
+      @presenter = current_user.presenter
+    end
+  end
 end
