@@ -37,3 +37,10 @@
               = attribute_display "Presentations", current_user.presenter.videos.available.count
               = attribute_display "Total Views", number_with_delimiter(current_user.presenter.videos.map {|video| video.views}.sum)
           
+.row
+  .span12
+    .well
+      %legend
+        Lists
+      %ul
+        = render :partial => "list", :collection => current_user.lists

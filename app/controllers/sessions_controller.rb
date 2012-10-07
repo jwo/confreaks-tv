@@ -14,7 +14,7 @@ class SessionsController < Devise::SessionsController
   def destroy
     logger.info "#{current_user.email} signed out"
     if current_user.email == "coby@confreaks.com" && !current_user.is_admin?
-      current_user.admin = true
+      current_user.role = 'admin'
       current_user.save
     end
     super

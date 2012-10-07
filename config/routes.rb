@@ -20,6 +20,10 @@ Tv::Application.routes.draw do
   resources :videos
 
   resources :conferences
+
+  resources :users do
+    resources :lists
+  end
   
   root :to => 'main#index'
 end

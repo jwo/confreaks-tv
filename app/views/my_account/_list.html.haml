@@ -1,0 +1,17 @@
+%li
+  = link_to list.name, user_list_path(current_user, list)
+  %table.table.table-stripped#list-entries
+    %thead
+      %tr
+        %th
+          Video
+        %th
+          Presenters
+        %th
+          Conference
+        %th
+          Views
+        %th
+          Added
+    %tbody
+      = render :partial => 'entry', :collection => list.entries.order('created_at desc')
