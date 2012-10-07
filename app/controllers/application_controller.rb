@@ -25,6 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
+    puts "IN CURRENT_USER in APPLICATION_CONTROLLER"
     return nil unless session[:user_id]
     @current_user ||= User.find_by_uid(session[:user_id]['uid'])
   end

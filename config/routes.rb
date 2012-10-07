@@ -1,12 +1,13 @@
 Tv::Application.routes.draw do
 
-  match '/auth/:provider/callback' => 'authentications#create'
+  # omniauth
+  match '/auth/:provider/callback' => 'user_sessions#create'
   match '/auth/failure', :to => 'user_sessions#failure'
 
+  # custom logout
   match '/sign_out', :to => 'user_sessions#destroy'
-  
-  resources :authentications
 
+  # application resources
   resources :my_account, :controller => :my_account
   
   resources :presenters

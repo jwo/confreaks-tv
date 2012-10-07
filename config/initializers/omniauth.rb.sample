@@ -1,4 +1,4 @@
-CUSTOM_PROVIDER_URL="http://local.sso.confreaks.tv:4000"
+CUSTOM_PROVIDER_URL="http://lvh.me:3000"
 
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :confreaks_sso, 'access_key', 'secret_key'
