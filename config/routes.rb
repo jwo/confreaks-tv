@@ -6,7 +6,7 @@ Tv::Application.routes.draw do
 
   resources :authentications
 
-  resources :my_account, :controller => :my_account
+  resource :my_account, :controller => :my_account
   
   resources :presenters
 

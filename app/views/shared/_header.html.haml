@@ -26,3 +26,12 @@
                   =link_to 'Table', presenters_path(:view => 'table')
                 %li
                   =link_to 'Pictures', presenters_path(:view => 'pictures')
+        %ul.nav.pull-right
+          -if current_user
+            %li
+              =link_to current_user.email, my_account_path(@current_user)
+            %li
+              =link_to 'Sign Out', destroy_user_session_path, :method => :delete
+          -else
+            %li
+              =link_to 'Sign In', new_user_session_path
