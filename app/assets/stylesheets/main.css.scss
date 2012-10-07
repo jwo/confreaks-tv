@@ -98,8 +98,16 @@
     text-align: right;
 }
 
-.dropdown-menu li a {
+.dropdown-menu {
+  left: 404px;
+
+  li a {
     text-align: left;
+  }
+}
+
+.caret {
+  margin-top: 8px;
 }
 
 .cftab-content {
