@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
     :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :role
+  attr_accessible :first_name, :last_name, :email, :password,
+                  :password_confirmation, :remember_me, :role
   # attr_accessible :title, :body
 
   ADMIN_ROLES = ['admin']

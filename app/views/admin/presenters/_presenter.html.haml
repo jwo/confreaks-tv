@@ -1,0 +1,17 @@
+%tr
+  %td
+    = presenter.id
+  %td
+    = presenter.first_name
+  %td
+    = presenter.last_name
+  %td
+    = yes_no(presenter.user)
+  %td
+    =link_to(presenter.twitter_handle, twitter_path(presenter.twitter_handle), :target => "_blank")  unless presenter.twitter_handle.nil?
+  %td.tr
+    =presenter.videos.count
+  %td.tr
+    =presenter.videos.map {|v| v.views}.sum
+  %td
+    = link_to 'edit', edit_admin_presenter_path(presenter)

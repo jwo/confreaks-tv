@@ -1,0 +1,25 @@
+.raw
+  .span12
+    %legend
+      Presenters
+    %table#presenters.table.table-stripped
+      %thead
+        %tr
+          %th
+            ID
+          %th
+            First Name
+          %th
+            Last Name
+          %th
+            User
+          %th
+            Twitter Handle
+          %th
+            Videos
+          %th
+            Total Views
+          %th
+            Actions
+      %tbody
+        = render :partial => "presenter", :collection => @presenters

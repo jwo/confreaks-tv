@@ -24,6 +24,11 @@ Tv::Application.routes.draw do
   resources :users do
     resources :lists
   end
+
+  namespace :admin do
+    resources :presenters
+    resources :users
+  end
   
   root :to => 'main#index'
 end

@@ -1,0 +1,19 @@
+=form_for [:admin, @user], :html => {:class => 'form-horizontal'} do |f|
+  .fieldset
+    %legend
+      User Information
+      -unless @user.new_record?
+        =link_to 'Cancel', user_path(@user), :class => "btn pull-right"
+      -else
+        =link_to 'Cancel', users_path, :class => "btn pull-right"
+      %p.pull-right &nbsp;
+      %button.btn.btn-primary.pull-right{:type => 'submit'}
+        Save Changes
+    .control-group
+      =f.label :first_name, :class => 'control-label'
+      .controls
+        =f.text_field :first_name
+    .control-group
+      =f.label :last_name, :class => 'control-label'
+      .controls
+        =f.text_field :last_name

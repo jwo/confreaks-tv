@@ -1,0 +1,27 @@
+.row
+  .span12
+    %legend
+      Users
+    %table#users.table.table-stripped
+      %thead
+        %tr
+          %th
+            ID
+          %th
+            First Name
+          %th
+            Last Name
+          %th
+            Twitter Handle
+          %th
+            Authentications
+          %th
+            Presenter
+          %th
+            Videos
+          %th
+            Email
+          %th
+            Actions
+      %tbody
+        =render :partial => "user", :collection => @users

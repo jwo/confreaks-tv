@@ -1,0 +1,19 @@
+%tr
+  %td
+    = user.id
+  %td
+    = user.first_name
+  %td
+    = user.last_name
+  %td
+    = user.presenter.try(:twitter_handle)
+  %td
+    = user.authentications.count
+  %td
+    = yes_no(user.presenter)
+  %td
+    = user.presenter.try(:videos).try(:count)
+  %td
+    = user.email
+  %td
+    = link_to 'edit', edit_admin_user_path(user)
