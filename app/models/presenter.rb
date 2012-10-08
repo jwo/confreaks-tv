@@ -1,4 +1,7 @@
 class Presenter < ActiveRecord::Base
+  attr_accessible :first_name, :last_name, :twitter_handle, :bio,
+    :favorite_video_id
+  
   acts_as_taggable
   acts_as_taggable_on :tags
   

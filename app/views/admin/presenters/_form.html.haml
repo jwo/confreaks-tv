@@ -1,0 +1,31 @@
+=form_for [:admin, @presenter], :html => {:class => 'form-horizontal'} do |f|
+  .fieldset
+    %legend
+      Presenter
+      -unless @presenter.new_record?
+        = link_to 'Cancel', admin_presenters_path, :class => 'btn pull-right'
+      -else
+        = link_to 'Cancel', admin_presenters_path, :class => 'btn pull-right'
+      %p.pull-right &nbsp;
+      %button.btn.btn-primary.pull-right{:type => 'submit', :value => 'list'}
+        Save Changes
+    .control-group
+      = f.label :first_name, :class => 'control-label'
+      .controls
+        = f.text_field :first_name
+    .control-group
+      = f.label :last_name, :class=> 'control-label'
+      .controls
+        = f.text_field :last_name
+    .control-group
+      = f.label :twitter_handle, :class => 'control-label'
+      .controls
+        = f.text_field :twitter_handle
+    .control-group
+      = f.label :bio, :class => 'control-label'
+      .controls
+        = f.text_area :bio, :rows => 5, :cols => 80
+    .control-group
+      = f.label :favorite_video, :class => 'controler-label'
+      .controls
+        =f.collection_select(:favorite_video_id, @presenter.videos, :id, :title, {:include_blank => true, :prompt => "Select favorite video"})

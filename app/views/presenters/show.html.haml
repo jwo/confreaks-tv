@@ -2,6 +2,9 @@
   .span3
     .well
       .presenter-container
+        .pull-right
+          %a{:href => edit_admin_presenter_path(@presenter)}
+            %i.icon-pencil
         .name
           =@presenter.display_name
         .image
@@ -15,16 +18,16 @@
     .well
       %legend
         Bio
-      =@presenter.bio
+      =Haml::Engine.new(@presenter.bio).render unless @presenter.bio.nil?
     -if @presenter.links
       .well
         %legend
           Links
         %ul
-          -unless (@presenter.twitter_handle && @presenter.twitter_handle.empty?)
+          -if (@presenter.twitter_handle && !@presenter.twitter_handle.empty?)
             %li
               Twitter:
-              =link_to @presenter.twitter_handle, twitter_path(@presenter.twitter_handle) 
+              =link_to @presenter.twitter_handle, twitter_path(@presenter.twitter_handle), :target => "_blank"
           =render :partial => 'link', :collection => @presenter.links
   .span3
     .well
