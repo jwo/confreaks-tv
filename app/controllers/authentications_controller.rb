@@ -3,22 +3,6 @@ class AuthenticationsController < ApplicationController
     @authentications = current_user.authentications if current_user
   end
 
-  def facebook
-    create
-  end
-
-  def twitter
-    create
-  end
-
-  def github
-    create
-  end
-
-  def open_id
-    create
-  end
-  
   ##
   # this method is called by /auth/:provider/callback from all the
   # oauth providers of this app.  So it is the auth lookup/create code
