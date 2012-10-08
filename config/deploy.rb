@@ -44,7 +44,7 @@ set :bundle_roles, [:app]
 after "deploy", "deploy:cleanup"
 after "deploy:update", "newrelic:notice_deployment"
 after "deploy:update_code", "custom:data_symlink"
-after "deploy:update_code", "app_version:generate_version_info"
+# after "deploy:update_code", "app_version:generate_version_info"
 
 namespace :deploy do
   task :start do ; end
