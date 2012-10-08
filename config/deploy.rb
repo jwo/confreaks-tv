@@ -1,5 +1,6 @@
 require 'bundler/capistrano'
 require 'new_relic/recipes'
+require 'app_version/recipes'
 
 # load RVM's capistrnao plugin
 require 'rvm/capistrano'
