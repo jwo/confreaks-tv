@@ -1,9 +1,10 @@
 require 'bundler/capistrano'
 require 'new_relic/recipes'
-require 'app_version/recipes'
 
 # load RVM's capistrnao plugin
 require 'rvm/capistrano'
+
+load "lib/app_version/recipes/app_version"
 
 # load whenever's capistrano support
 set :whenever_command, "bundle exec whenever"
