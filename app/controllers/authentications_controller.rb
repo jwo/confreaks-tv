@@ -15,9 +15,6 @@ class AuthenticationsController < ApplicationController
                                                              )
 
     if authentication
-      # an authentication for this provider and user already exists
-      # check to see if there is an entry for this event
-      check_event_entry authentication
 
       sign_in_and_redirect(:user, authentication.user)
 
