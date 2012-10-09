@@ -2,9 +2,9 @@ Tv::Application.routes.draw do
 
   devise_for :users, :controllers => {:sessions => :sessions,
     :registrations => :registrations,
-  :omniauth_callbacks => :authentications}
+    :omniauth_callbacks => :authentications}
 
-  match '/auth/:provider/callback' => 'authentications#create'
+  match '/users/auth/:provider/callback' => 'authentications#create'
 
   resources :authentications
 
