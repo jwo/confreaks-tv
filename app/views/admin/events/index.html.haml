@@ -1,0 +1,27 @@
+.row
+  .span12
+    %legend
+      Events
+    %table#events.table.table-striped
+      %thead
+        %tr
+          %th
+            ID
+          %th
+            Name
+          %th
+            Short
+            %br
+            Code
+          %th
+            Start
+          %th
+            End
+          %th
+            Logo
+          %th
+            Conference
+          %th
+            Actions
+      %tbody
+        = render :partial => 'event', :collection => @events

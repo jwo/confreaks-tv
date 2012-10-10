@@ -1,0 +1,16 @@
+%li
+  %a.drop-down-toggle{:href => "#", "data-toggle" => "dropdown"}
+    %span
+      Admin
+      %span.make-it-white.caret
+    %ul.dropdown-menu.admin-menu
+      %li
+        = link_to "Conferences", admin_conferences_path
+      %li
+        = link_to "Events", admin_events_path    
+      %li
+        = link_to "Presenters", admin_presenters_path
+      %li
+        = link_to "Users", admin_users_path
+      %li
+        = link_to "Videos", admin_videos_path

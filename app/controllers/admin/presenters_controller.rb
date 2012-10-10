@@ -1,4 +1,4 @@
-class Admin::PresentersController < ApplicationController
+class Admin::PresentersController < Admin::Controller
   def index
     @presenters = Presenter.order("last_name, first_name")
   end

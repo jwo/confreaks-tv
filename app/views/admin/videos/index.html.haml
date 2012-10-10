@@ -1,0 +1,32 @@
+.row
+  .span12
+    %legend
+      Videos
+    %table#videos.table.table-stripped
+      %thead
+        %tr
+          %th
+            ID
+          %th
+            Title
+          %th
+            Recorded At
+          %th
+            Event
+          %th
+            Available
+          %th
+            Image
+          %th
+            Assets
+          %th
+            Rating
+          %th
+            Youtube Code
+          %th
+            Views
+          %th
+            Actions
+      %tbody
+        = render :partial => "video", :collection => @videos
+            

@@ -26,8 +26,11 @@ Tv::Application.routes.draw do
   end
 
   namespace :admin do
+    resources :conferences
+    resources :events
     resources :presenters
     resources :users
+    resources :videos
   end
   
   root :to => 'main#index'

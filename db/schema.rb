@@ -177,6 +177,13 @@ ActiveRecord::Schema.define(:version => 20121007115752) do
     t.datetime "updated_at"
   end
 
+  create_table "t", :id => false, :force => true do |t|
+    t.integer "i"
+    t.text    "t"
+  end
+
+  add_index "t", ["t"], :name => "t"
+
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -203,10 +210,27 @@ ActiveRecord::Schema.define(:version => 20121007115752) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "",     :null => false
+    t.string   "username"
+    t.string   "email"
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.datetime "last_login_date"
+    t.string   "time_zone"
+    t.boolean  "admin",                  :default => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "presenter_id"
+    t.integer  "rep_score",              :default => 0
+    t.string   "title"
     t.string   "encrypted_password",     :default => "",     :null => false
     t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
+    t.datetime "reset_password_sent_on"
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",          :default => 0
     t.datetime "current_sign_in_at"
@@ -218,18 +242,11 @@ ActiveRecord::Schema.define(:version => 20121007115752) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.string   "authentication_token"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
-    t.integer  "presenter_id"
-    t.string   "uid"
-    t.string   "first_name"
-    t.string   "last_name"
     t.string   "role",                   :default => "user"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "videos", :force => true do |t|
@@ -262,7 +279,7 @@ ActiveRecord::Schema.define(:version => 20121007115752) do
 
   add_index "videos", ["event_id"], :name => "by_event_id"
   add_index "videos", ["recorded_at"], :name => "by_recorded_at"
+  add_index "videos", ["title", "abstract"], :name => "title"
   add_index "videos", ["title"], :name => "by_title"
-  add_index "videos", ["title"], :name => "title"
 
 end

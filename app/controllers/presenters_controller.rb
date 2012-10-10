@@ -19,4 +19,18 @@ class PresentersController < ApplicationController
       @presenter = current_user.presenter
     end
   end
+
+  def update
+    @presenter = Presenter.find(params[:id])
+
+    @presenter.update_attributes(params[:presenter])
+
+    if @presenter.save
+      flash[:success] = "Your changes have been successfully saved."
+      redirect_to my_account_path
+    else
+      flash[:error] = "You need to address the following items:"
+      redirect_to my_account_path
+    end
+  end
 end

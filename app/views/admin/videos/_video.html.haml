@@ -1,0 +1,23 @@
+%tr
+  %td
+    = video.id
+  %td
+    = link_to video.title, video_path(video)
+  %td
+    = video.recorded_at
+  %td
+    = video.event.display_name
+  %td
+    = yes_no(video.available)
+  %td
+    = image_tag(video.image.url)
+  %td
+    = video.assets.count
+  %td
+    = video.rating
+  %td
+    = video.youtube_code
+  %td
+    = video.views
+  %td
+    = link_to 'edit', edit_admin_video_path(video)

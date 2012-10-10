@@ -22,6 +22,8 @@ gem 'rvm-capistrano'
 
 gem 'newrelic_rpm'
 
+gem 'rvideo'
+
 group :development do
   gem 'sqlite3'
 end

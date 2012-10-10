@@ -235,6 +235,7 @@ GEM
     remotipart (1.0.2)
     ruby-openid (2.2.0)
     rubyzip (0.9.9)
+    rvideo (0.9.3)
     rvm-capistrano (1.2.6)
       capistrano (>= 2.0.0)
     sass (3.2.1)
@@ -314,6 +315,7 @@ DEPENDENCIES
   railroady
   rails (= 3.2.7)
   rails_admin
+  rvideo
   rvm-capistrano
   sass
   sass-rails (~> 3.2.3)

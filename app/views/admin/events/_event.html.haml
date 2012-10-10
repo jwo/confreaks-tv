@@ -1,0 +1,17 @@
+%tr
+  %td
+    = event.id
+  %td
+    = link_to event.display_name, event_path(event)
+  %td
+    = event.short_code
+  %td
+    = event.start_at
+  %td
+    = event.end_at
+  %td
+    = image_tag(event.logo.url(:medium))
+  %td
+    = event.conference.name
+  %td
+    = link_to 'edit', edit_admin_event_path(event)
