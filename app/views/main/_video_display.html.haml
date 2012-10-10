@@ -12,6 +12,9 @@
           %iframe{:width =>"900" , :height => "540", :src=>"http://www.youtube.com/embed/#{video.youtube_code}?autoplay=0&origin=http://confreaks.tv", :frameborder=>'0', :allowfullscreen=>true}
         .video-conference
           =link_to video.event.display_name, event_path(video.event)
+        -if video.license
+          .video-license
+            = render :partial => 'videos/license', :locals => { :video => video }
   .row
     .span12
       .well           
