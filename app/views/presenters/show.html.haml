@@ -46,6 +46,7 @@
 .row
   -k=-1
   -@presenter.videos.available.each_with_index do |video, i|
+    -next if video == @presenter.featured_video
     -k+=1
     .span4
       .well

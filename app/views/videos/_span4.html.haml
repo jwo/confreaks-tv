@@ -1,0 +1,9 @@
+.well
+  .event-video
+    =link_to image_tag(video.image.url(:thumb), :class => 'noborder'), video_path(video)
+    %br
+    =video.title
+    %br
+    =raw(display_video_presenter_links(video))
+    %br
+    =number_with_delimiter(video.try(views))

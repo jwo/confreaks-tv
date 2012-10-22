@@ -1,5 +1,7 @@
 Tv::Application.routes.draw do
 
+  get "leader_boards/index"
+
   match '/users/auth/:provider/callback' => 'authentications#create'
   
   devise_for :users, :controllers => {:sessions => :sessions,
@@ -12,6 +14,7 @@ Tv::Application.routes.draw do
     put '/claim_presenter/:id', :on => :member, :action => "claim_presenter"
   end
 
+  resources :leader_boards, :only => :index
   
   resources :presenters
 

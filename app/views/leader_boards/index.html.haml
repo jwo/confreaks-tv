@@ -1,0 +1,16 @@
+.row
+  .span12
+    %h1
+      Most Popular Videos
+  .span4
+    %legend
+      Last 7 Days
+    = render :partial => 'videos/span4', :collection => @last_7, :as => :video, :locals => {:views => "views_last_7"}
+  .span4
+    %legend
+      Last 30 Days
+    = render :partial => 'videos/span4', :collection => @last_30, :as => :video, :locals => {:views => "views_last_30"}
+  .span4
+    %legend
+      All Time
+    = render :partial => 'videos/span4', :collection => @all_time, :as => :video, :locals => {:views => "views"}

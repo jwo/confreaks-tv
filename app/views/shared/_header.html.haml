@@ -15,6 +15,8 @@
           %li
             = link_to "Events", events_path
           %li
+            = link_to "Leader Board", leader_boards_path(:limit => 10)
+          %li
             = link_to "Search", "#"
           %li
             %a.drop-down-toggle{:href => "#", "data-toggle" => "dropdown"}
@@ -34,7 +36,6 @@
               = render :partial => 'shared/admin_menu'
             %li
               =link_to 'Sign Out', destroy_user_session_path, :method => :delete
-
 
           -else
             %li

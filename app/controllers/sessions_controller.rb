@@ -1,14 +1,13 @@
 class SessionsController < Devise::SessionsController
 
+  def new
+    super
+  end
+  
   def create
     logger.info "Attempt to sign in by #{params[:user][:email] }"
 
     super
-
-    if current_user
-      #check_event_entry
-    end
-
   end
 
   def destroy
