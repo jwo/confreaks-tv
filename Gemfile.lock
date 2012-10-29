@@ -295,7 +295,7 @@ DEPENDENCIES
   autotest-growl
   autotest-rails-pure (~> 4.1.2)
   autotest-standalone (~> 4.5.4)
-  capistrano (~> 2.13)
+  capistrano
   capistrano-ext
   coffee-rails (~> 3.2.1)
   devise

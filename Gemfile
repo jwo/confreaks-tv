@@ -16,7 +16,7 @@ gem 'omniauth-linkedin'
 
 gem 'rails_admin'
 
-gem 'capistrano', "~> 2.13"
+gem 'capistrano'
 gem 'capistrano-ext'
 gem 'rvm-capistrano'
 
