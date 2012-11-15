@@ -14,7 +14,9 @@ common: &default_settings
   # You must specify the license key associated with your New Relic
   # account.  This key binds your Agent's data to your account in the
   # New Relic service.
-  license_key: '034b00ec18c9bcfc9e8f3a7605062ea9f161ae4b'
+ license_key: '36711c626b48d4c12caa2a0e189f3f1863e1b00b'    
+  # ATT SLT GG
+
 
   # Agent Enabled (Ruby/Rails Only)
   # Use this setting to force the agent to run or not run.
