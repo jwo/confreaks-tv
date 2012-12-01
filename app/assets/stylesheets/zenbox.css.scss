@@ -1,28 +1,27 @@
 #zenbox_tab #feedback_tab_text {
-font-size: 1.0em !important;
-margin: 5px auto !important;
-
+    font-size: 1.0em !important;
+    margin: 5px auto !important;
 }
 
 /* this rotates the tab 180 degrees from its default rotation of -90 */
 #zenbox_tab.ZenboxTabLeft {
--webkit-transform: rotate(90deg) !important;
--moz-transform: rotate(90deg) !important;
--o-transform: rotate(90deg) !important;
--ms-transform: rotate(90deg) !important;
-transform: rotate(90deg) !important;
+    -webkit-transform: rotate(90deg) !important;
+    -moz-transform: rotate(90deg) !important;
+    -o-transform: rotate(90deg) !important;
+    -ms-transform: rotate(90deg) !important;
+    transform: rotate(90deg) !important;
 }
 
 /* this changes the border and positioning of the Tab */
 #zenbox_tab {
-border: solid 2px silver !important;
-position: absolute !important;
-top: 100px !important;
-left: -50px !important;
-min-width: 70px !important;
+    border: solid 2px silver !important;
+    position: absolute !important;
+    top: 100px !important;
+    left: -50px !important;
+    min-width: 70px !important;
 }
 
 /* the secret sauce */
 #zenbox_tab:hover {
-left:-40px !important;
+    left:-40px !important;
 }
