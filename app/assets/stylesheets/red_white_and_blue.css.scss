@@ -1,0 +1,44 @@
+.navbar {
+    background: #980000;
+}
+
+.navbar-inner {
+    color: black;
+
+/* Background Gradient for Monochromatic Colors */
+    background-color: #FF7373;
+    /* For WebKit (Safari, Chrome, etc) */
+    background: #FF7373 -webkit-gradient(linear, left top, left bottom, from(#720000), to(#FF7373)) no-repeat;
+    /* Mozilla,Firefox/Gecko */
+    background: #FF7373 -moz-linear-gradient(top, #720000, #FF7373) no-repeat;
+    /* IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#720000, endColorstr=#FF7373) no-repeat;
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#720000, endColorstr=#720000)" no-repeat;
+}
+
+.navbar .nav li a {
+    color: black;
+    text-shadow: 0 0px 0 white;
+}
+
+.navbar .nav li a:hover {
+    color: white;
+}
+
+.navbar .brand {
+    color: black;
+    text-shadow: 0 0px 0 white;
+    a:hover {
+        color: white;
+    }
+}
+
+footer {
+    background: #252a52;
+    color: white;
+}
+
+a {
+    color: #252a52;
+}
