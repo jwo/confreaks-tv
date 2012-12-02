@@ -3,6 +3,7 @@ Tv::Application.routes.draw do
   get "leader_boards/index"
 
   match '/auth/:provider/callback' => 'authentications#create'
+  match '/users/auth/:provider/callback' => 'authentications#create'
   
   devise_for :users, :controllers => {:sessions => :sessions,
     :registrations => :registrations,
