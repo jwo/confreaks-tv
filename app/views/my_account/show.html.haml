@@ -16,7 +16,7 @@
             =attribute_display "Email", current_user.email
             =attribute_display "First Name", current_user.first_name || current_user.presenter.try(:first_name)
             = attribute_display "Last Name", current_user.last_name || current_user.presenter.try(:last_name)
-            = attribute_display "Twitter Handle", current_user.presenter.twitter_name
+            = attribute_display "Twitter Handle", current_user.presenter.try(:twitter_name)
           .control-group
             = attribute_display "Bio", current_user.presenter.bio
           .control-group

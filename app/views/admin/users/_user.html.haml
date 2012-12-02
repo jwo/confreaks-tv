@@ -6,11 +6,13 @@
   %td
     = user.last_name
   %td
-    = user.presenter.try(:twitter_handle)
+    = user.presenter.try(:twitter_name)
   %td
-    = user.authentications.count
+    = user.authentications.map {|a| a.provider_name}.join(", ")
   %td
     = yes_no(user.presenter)
+  %td
+    = yes_no(user.is_admin?)
   %td
     = user.presenter.try(:videos).try(:count)
   %td
