@@ -11,8 +11,8 @@
         .conference-mini-display-outer
           .conference-mini-display
             .inner
-              =image_tag(event.logo.url)
+              = link_to image_tag(event.logo.url), event_path(event)
               .caption
-                =link_to event.display_name, event_path(event)
+                = link_to event.display_name, event_path(event)
     -if (k+1) % 2 == 0
       .clearfix
