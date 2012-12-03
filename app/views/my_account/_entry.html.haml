@@ -1,8 +1,8 @@
 %tr
   %td
-    =entry.video.title
+    =link_to entry.video.title, video_path(entry.video)
   %td
-    =#entry.video.presenters
+    =raw(display_video_presenter_links entry.video)
   %td
     =entry.video.event.display_name
   %td.tr

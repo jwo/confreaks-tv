@@ -236,14 +236,28 @@ class Video < ActiveRecord::Base
   end
 
   ##
+  # returns the title of the license that this video is released under
+  def license_title
+    case self.license
+    when "cc-by-sa-3.0"
+      "Creative Commons Attribution ShareAlike 3.0"
+    when "cc-by-nc-sa-2.0-uk"
+      "Creative Commons Attribution-NonCommerical-ShareAlike 2.0 UK: England & Wales"
+    end
+  end
+  
+  ##
   # returns the link based on the license attribute, these are
   # hardcoded because it is a very limited set.
   def license_url
     case self.license
     when "cc-by-sa-3.0"
       "http://creativecommons.org/licenses/by-sa/3.0/"
+    when "cc-by-nc-sa-2.0-uk"
+      "http://creativecommons.org/licenses/by-nc-sa/2.0/uk"
     end
   end
+  
   ##
   # returns the image file url for the license attribute, just like
   # license_url these are hardcoded, when we add support for a new
@@ -252,6 +266,8 @@ class Video < ActiveRecord::Base
     case self.license
     when "cc-by-sa-3.0"
       "http://i.creativecommons.org/l/by-sa/3.0/80x15.png"
+    when "cc-by-nc-sa-2.0-uk"
+       nil
     end
   end
 
